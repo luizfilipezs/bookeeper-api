@@ -1,4 +1,10 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Collection } from './collection.entity';
 
-@Module({})
+@Module({
+  imports: [
+    TypeOrmModule.forFeature([Collection]),
+  ],
+})
 export class CollectionsModule {}
