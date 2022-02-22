@@ -1,0 +1,21 @@
+import { IsString } from 'class-validator';
+import { Book } from 'src/books/book.entity';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class Collection {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  name: string;
+
+  @Column({
+    type: 'text',
+  })
+  @IsString()
+  description: string;
+
+  @ManyToMany(() => Book)
+  books: Book[];
+}
