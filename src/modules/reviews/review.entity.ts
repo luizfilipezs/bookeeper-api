@@ -1,5 +1,5 @@
 import { IsDecimal, IsNotEmpty, IsString } from 'class-validator';
-import { Book } from 'src/books/book.entity';
+import { Book } from '../books/book.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

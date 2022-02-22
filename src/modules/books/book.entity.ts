@@ -1,10 +1,10 @@
 import { IsBoolean, IsDefined, IsEnum, IsInt, IsNotEmpty, IsString, Length } from 'class-validator';
-import { Author } from 'src/authors/author.entity';
-import { Collection } from 'src/collections/collection.entity';
-import { Publisher } from 'src/publishers/publisher.entity';
-import { Reading } from 'src/readings/reading.entity';
-import { Review } from 'src/reviews/review.entity';
-import { Tag } from 'src/tags/tag.entity';
+import { Author } from '../authors/author.entity';
+import { Collection } from '../collections/collection.entity';
+import { Publisher } from '../publishers/publisher.entity';
+import { Reading } from '../readings/reading.entity';
+import { Review } from '../reviews/review.entity';
+import { Tag } from '../tags/tag.entity';
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ConservationState } from './conservation-state';
 

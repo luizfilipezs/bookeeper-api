@@ -1,22 +1,19 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { Book } from 'src/books/book.entity';
+import { Book } from '../books/book.entity';
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Collection {
+export class Tag {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({
+    length: 100,
+    unique: true,
+  })
   @IsString()
   @IsNotEmpty()
   name: string;
-
-  @Column({
-    type: 'text',
-  })
-  @IsString()
-  description: string;
 
   @ManyToMany(() => Book)
   books: Book[];
