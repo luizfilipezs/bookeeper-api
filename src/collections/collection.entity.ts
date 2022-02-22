@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 import { Book } from 'src/books/book.entity';
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -8,6 +8,8 @@ export class Collection {
   id: string;
 
   @Column()
+  @IsString()
+  @IsNotEmpty()
   name: string;
 
   @Column({

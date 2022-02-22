@@ -1,3 +1,4 @@
+import { IsNotEmpty, IsString } from 'class-validator';
 import { Book } from 'src/books/book.entity';
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -10,6 +11,8 @@ export class Tag {
     length: 100,
     unique: true,
   })
+  @IsString()
+  @IsNotEmpty()
   name: string;
 
   @ManyToMany(() => Book)
