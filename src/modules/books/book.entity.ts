@@ -29,6 +29,12 @@ export class Book {
   publisherId: string;
 
   /**
+   * Publishing company.
+   */
+  @ManyToOne(() => Publisher, (publisher) => publisher.books)
+  publisher: Publisher;
+
+  /**
    * Title.
    */
   @Column()
@@ -132,16 +138,16 @@ export class Book {
   authors: Author[];
 
   /**
-   * Publishing company.
+   * List of translators.
    */
-  @ManyToOne(() => Publisher, (publisher) => publisher.books)
-  publisher: Publisher;
+  @ManyToMany(() => Author)
+  @JoinTable()
+  translators: Author[];
 
   /**
    * Tags linked to the book.
    */
   @ManyToMany(() => Tag)
-  @JoinTable()
   tags: Tag[];
 
   /**
