@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 import { Book } from '../books/book.entity';
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Tag {
@@ -13,8 +13,10 @@ export class Tag {
   })
   @IsString()
   @IsNotEmpty()
+  @MaxLength(100)
   name: string;
 
   @ManyToMany(() => Book)
+  @JoinTable()
   books: Book[];
 }
