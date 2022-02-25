@@ -1,4 +1,4 @@
-import { IsDecimal, IsNotEmpty, IsString } from 'class-validator';
+import { IsDefined, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 import { Book } from '../books/book.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -10,7 +10,7 @@ export class Review {
   @Column({
     nullable: false,
   })
-  @IsDecimal()
+  @IsDefined()
   bookId: string;
 
   @ManyToOne(() => Book, (book) => book.readings)
@@ -19,6 +19,7 @@ export class Review {
   @Column()
   @IsString()
   @IsNotEmpty()
+  @MaxLength(100)
   title: string;
 
   @Column()
