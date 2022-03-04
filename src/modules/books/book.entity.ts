@@ -47,9 +47,19 @@ export class Book {
    */
   @Column({
     default: 1,
+    nullable: false,
   })
   @IsInt()
   volumeQuantity: number;
+
+  /**
+   * Number of pages.
+   */
+  @Column({
+    nullable: false,
+  })
+  @IsInt()
+  length: number;
 
   /**
    * Enum value that indicates the conservation state of the book.
