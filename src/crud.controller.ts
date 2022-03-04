@@ -1,7 +1,7 @@
 import { Body, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { CrudService } from './crud.service';
 
-export abstract class CrudController<T extends object, D extends object> {
+export abstract class CrudController<T extends object, D extends object = object> {
 
   constructor(protected readonly service: CrudService<T, D>) { }
 
