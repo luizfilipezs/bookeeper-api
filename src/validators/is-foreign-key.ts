@@ -11,7 +11,7 @@ import { getRepository } from 'typeorm';
 class IsForeignKeyConstraint implements ValidatorConstraintInterface {
 
   async validate(id: any, args: ValidationArguments): Promise<boolean> {
-    const entity = args.constraints[0];
+    const [entity] = args.constraints;
     const repository = getRepository(entity);
     const record = await repository.findOne(id);
 
