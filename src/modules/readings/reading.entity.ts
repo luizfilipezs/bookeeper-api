@@ -43,16 +43,13 @@ export class Reading {
    * @return {string} Reading status.
    */
   get status(): ReadingStatus {
-    const today = new Date();
-
-    if (this.startDate > today) {
-      return 'scheduled';
-    }
-
     if (this.endDate) {
       return 'complete';
     }
 
-    return 'in progress';
+    const today = new Date();
+    const isScheduled = this.startDate > today;
+
+    return isScheduled ? 'scheduled' : 'in progress';
   }
 }

@@ -5,7 +5,7 @@ import { Tag } from './tag.entity';
 import { TagsService } from './tags.service';
 
 @Controller('tags')
-export class TagsController extends CrudController<Tag, TagDto> {
+export class TagsController extends CrudController<Tag> {
 
   constructor(service: TagsService) {
     super(service);
