@@ -7,10 +7,8 @@ import {
 } from 'class-validator';
 import { getRepository } from 'typeorm';
 
-@ValidatorConstraint({
-  async: true,
-})
-export class IsNewConstraint implements ValidatorConstraintInterface {
+@ValidatorConstraint({ async: true })
+class IsNewConstraint implements ValidatorConstraintInterface {
 
   async validate(value: any, args: ValidationArguments): Promise<boolean> {
     const [entity, propertyName] = args.constraints;

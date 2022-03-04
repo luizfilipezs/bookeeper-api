@@ -7,10 +7,8 @@ import {
 } from 'class-validator';
 import { getRepository } from 'typeorm';
 
-@ValidatorConstraint({
-  async: true,
-})
-export class IsForeignKeyConstraint implements ValidatorConstraintInterface {
+@ValidatorConstraint({ async: true })
+class IsForeignKeyConstraint implements ValidatorConstraintInterface {
 
   async validate(id: any, args: ValidationArguments): Promise<boolean> {
     const entity = args.constraints[0];
