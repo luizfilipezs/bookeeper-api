@@ -8,6 +8,7 @@ import { AuthorsModule } from './modules/authors/authors.module';
 import { ReviewsModule } from './modules/reviews/reviews.module';
 import { TagsModule } from './modules/tags/tags.module';
 import { CloudDocumentsModule } from './modules/cloud-documents/cloud-documents.module';
+import { CategoriesModule } from './modules/categories/categories.module';
 import * as ormConfig from './orm.config';
 
 @Module({
@@ -21,6 +22,7 @@ import * as ormConfig from './orm.config';
     ReviewsModule,
     TagsModule,
     CloudDocumentsModule,
+    CategoriesModule,
   ],
 })
 export class AppModule {}
